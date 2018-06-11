@@ -5,7 +5,10 @@ import com.bloodfinder.hemo.utils.ObjectMapperUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
 
@@ -13,9 +16,11 @@ import java.util.Date;
  * @project hemo
  * @authore dgunda on 6/10/18
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = {HemoApplication.class})
 public class DonorHealthInfoTest {
-//    @Autowired
-//    ObjectMapperUtil objectMapperUtil;
+    @Autowired
+    ObjectMapperUtil objectMapperUtil;
 
     @Test
     public void testDonorTestInfoDto(){
@@ -49,8 +54,6 @@ public class DonorHealthInfoTest {
         donor.setPhoneNumber("000-000-1010");
         donor.setEmailId("gh@gmail.com");
 
-
-        ObjectMapperUtil objectMapperUtil = new ObjectMapperUtil();
         try {
             String output = objectMapperUtil.getObjectMapper().writeValueAsString(donor);
             System.out.println(output);
