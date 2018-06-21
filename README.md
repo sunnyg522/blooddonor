@@ -18,4 +18,9 @@ CREATE TABLE donorinfo.donor_info_table (
   zip text,
   city text,
   blood_type text,
+  laste_date_of_don date
 );
+
+# Alter the above table add lastedonated date
+ALTER TABLE donorinfo.donor_info_table
+ADD laste_date_of_don date;
