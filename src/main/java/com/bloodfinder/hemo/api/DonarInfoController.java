@@ -19,7 +19,7 @@ public class DonarInfoController {
         return "Blood Donor info";
     }
     @RequestMapping(value = "/getdonorinfo/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Donor> gerDonorInfo(){
+    public ResponseEntity<DonorInfo> gerDonorInfo(){
         DonorHealthInfo donorHealthInfo = new DonorHealthInfo();
         donorHealthInfo.setDisease("no disease");
         donorHealthInfo.setDrinking(false);
@@ -38,19 +38,19 @@ public class DonarInfoController {
 
         Gender gender = Gender.FEMALE;
 
-        Donor donor = new Donor();
-        donor.setFirstName("Harinya");
-        donor.setLastName("Gunda");
-        donor.setAge(26);
-        donor.setBloodType(bloodType);
-        donor.setDisplayName("papps");
-        donor.setDonorId("HYD-1001");
-        donor.setDonorAddress(donorAddress);
-        donor.setGender(gender);
-        donor.setPhoneNumber("000-000-1010");
-        donor.setEmailId("gh@gmail.com");
+        DonorInfo donorInfo = new DonorInfo();
+        donorInfo.setFirstName("Harinya");
+        donorInfo.setLastName("Gunda");
+        donorInfo.setAge(26);
+        donorInfo.setBloodType(bloodType);
+        donorInfo.setDisplayName("papps");
+        donorInfo.setDonorId("HYD-1001");
+        donorInfo.setDonorAddress(donorAddress);
+        donorInfo.setGender(gender);
+        donorInfo.setPhoneNumber("000-000-1010");
+        donorInfo.setEmailId("gh@gmail.com");
 
-        return new ResponseEntity<Donor>(donor, HttpStatus.OK);
+        return new ResponseEntity<DonorInfo>(donorInfo, HttpStatus.OK);
 
     }
 }

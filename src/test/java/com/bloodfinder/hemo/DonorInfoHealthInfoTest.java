@@ -1,7 +1,6 @@
 package com.bloodfinder.hemo;
 
 import com.bloodfinder.hemo.dto.*;
-import com.bloodfinder.hemo.utils.ObjectMapperUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -18,9 +17,9 @@ import java.util.Date;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {HemoApplication.class})
-public class DonorHealthInfoTest {
+public class DonorInfoHealthInfoTest {
     @Autowired
-    ObjectMapperUtil objectMapperUtil;
+    ObjectMapper objectMapper;
 
     @Test
     public void testDonorTestInfoDto(){
@@ -42,20 +41,20 @@ public class DonorHealthInfoTest {
 
         Gender gender = Gender.FEMALE;
 
-        Donor donor = new Donor();
-        donor.setFirstName("Harinya");
-        donor.setLastName("Gunda");
-        donor.setAge(26);
-        donor.setBloodType(bloodType);
-        donor.setDisplayName("papps");
-        donor.setDonorId("HYD-1001");
-        donor.setDonorAddress(donorAddress);
-        donor.setGender(gender);
-        donor.setPhoneNumber("000-000-1010");
-        donor.setEmailId("gh@gmail.com");
+        DonorInfo donorInfo = new DonorInfo();
+        donorInfo.setFirstName("Harinya");
+        donorInfo.setLastName("Gunda");
+        donorInfo.setAge(26);
+        donorInfo.setBloodType(bloodType);
+        donorInfo.setDisplayName("papps");
+        donorInfo.setDonorId("HYD-1001");
+        donorInfo.setDonorAddress(donorAddress);
+        donorInfo.setGender(gender);
+        donorInfo.setPhoneNumber("000-000-1010");
+        donorInfo.setEmailId("gh@gmail.com");
 
         try {
-            String output = objectMapperUtil.getObjectMapper().writeValueAsString(donor);
+            String output = objectMapper.writeValueAsString(donorInfo);
             System.out.println(output);
         } catch (JsonProcessingException e) {
             e.printStackTrace();

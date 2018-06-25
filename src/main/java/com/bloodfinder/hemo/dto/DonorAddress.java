@@ -1,9 +1,11 @@
 package com.bloodfinder.hemo.dto;
 
+
 /**
  * @project hemo
  * @authore dgunda on 6/10/18
  */
+
 public class DonorAddress {
     private String address;
     private String city;
